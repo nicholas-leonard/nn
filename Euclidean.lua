@@ -70,6 +70,7 @@ function Euclidean:updateOutput(input)
       end
       
       self.output:norm(self._repeat, 2, 2)
+      self.output:resize(batchSize, outputSize)
    else
       error"1D or 2D input expected"
    end
