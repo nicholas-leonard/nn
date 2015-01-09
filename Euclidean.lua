@@ -44,7 +44,7 @@ function Euclidean:updateOutput(input)
    local inputSize, outputSize = self.weight:size(1), self.weight:size(2)
    
    if input:dim() == 1 then
-      self._input:reshape(input, inputSize, 1)
+      self._input:view(input, inputSize, 1)
       self._expand:expandAs(self._input, self.weight)
       self._repeat:resizeAs(self._expand):copy(self._expand)
       self._repeat:add(-1, self.weight)
@@ -53,12 +53,12 @@ function Euclidean:updateOutput(input)
    elseif input:dim() == 2 then
       local batchSize = input:size(1)
       
-      self._input:reshape(input, batchSize, inputSize, 1)
+      self._input:view(input, batchSize, inputSize, 1)
       self._expand:expand(self._input, batchSize, inputSize, outputSize)
       -- make the expanded tensor contiguous (requires lots of memory)
       self._repeat:resizeAs(self._expand):copy(self._expand)
       
-      self._weight:reshape(self.weight, 1, inputSize, outputSize)
+      self._weight:view(self.weight, 1, inputSize, outputSize)
       self._expand2:expandAs(self._weight, self._repeat)
       
       if torch.type(input) == 'torch.CudaTensor' then
