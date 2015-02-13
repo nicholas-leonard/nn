@@ -3,26 +3,26 @@
 
 This set of modules allows the manipulation of tables through the layers of a neural network.
 This allows one to build very rich architectures:
- * Table Container Modules encapsulate sub-Modules:
-   * [ConcatTable](#nn.ConcatTable) : applies each member module to the same input     [Tensor](https://github.com/torch/torch7/blob/master/doc/tensor.md#tensor) and outputs a table;
-   * [ParallelTable](#nn.ParallelTable) : applies the `ith` member module to the `ith` input and outputs a table;
- * Table Conversion Modules convert between tables and Tensors or tables:
-   * [SplitTable](#nn.SplitTable) : splits a Tensor into a table of Tensors;
-   * [JoinTable](#nn.JoinTable) : joins a table of Tensors into a Tensor;
-   * [MixtureTable](#nn.MixtureTable) : mixture of experts weighted by a gater;
-   * [SelectTable](#nn.SelectTable) : select one element from a table;
-   * [FlattenTable](#nn.FlattenTable) : flattens a nested table hierarchy;
- * Pair Modules compute a measure like distance or similarity from a pair (table) of input Tensors :
-   * [PairwiseDistance](#nn.PairwiseDistance) : outputs the `p`-norm. distance between inputs;
-   * [DotProduct](#nn.DotProduct) : outputs the dot product (similarity) between inputs;
-   * [CosineDistance](#nn.CosineDistance) : outputs the cosine distance between inputs;
- * CMath Modules perform element-wise operations on a table of Tensors:
-   * [CAddTable](#nn.CAddTable) : addition of input Tensors;
-   * [CSubTable](#nn.CSubTable) : substraction of input Tensors;
-   * [CMulTable](#nn.CMulTable) : multiplication of input Tensors;
-   * [CDivTable](#nn.CDivTable) : division of input Tensors;
- * Table of Criteria :
-   * [CriterionTable](#nn.CriterionTable) : wraps a [Criterion](criterion.md#nn.Criterion) so that it can accept a Table of inputs.
+  * Table Container Modules encapsulate sub-Modules:
+    * [ConcatTable](#nn.ConcatTable) : applies each member module to the same input     [Tensor](https://github.com/torch/torch7/blob/master/doc/tensor.md#tensor) and outputs a table;
+    * [ParallelTable](#nn.ParallelTable) : applies the `ith` member module to the `ith` input and outputs a table;
+  * Table Conversion Modules convert between tables and Tensors or tables:
+    * [SplitTable](#nn.SplitTable) : splits a Tensor into a table of Tensors;
+    * [JoinTable](#nn.JoinTable) : joins a table of Tensors into a Tensor;
+    * [MixtureTable](#nn.MixtureTable) : mixture of experts weighted by a gater;
+    * [SelectTable](#nn.SelectTable) : select one element from a table;
+    * [FlattenTable](#nn.FlattenTable) : flattens a nested table hierarchy;
+  * Pair Modules compute a measure like distance or similarity from a pair (table) of input Tensors :
+    * [PairwiseDistance](#nn.PairwiseDistance) : outputs the `p`-norm. distance between inputs;
+    * [DotProduct](#nn.DotProduct) : outputs the dot product (similarity) between inputs;
+    * [CosineDistance](#nn.CosineDistance) : outputs the cosine distance between inputs;
+  * CMath Modules perform element-wise operations on a table of Tensors:
+    * [CAddTable](#nn.CAddTable) : addition of input Tensors;
+    * [CSubTable](#nn.CSubTable) : substraction of input Tensors;
+    * [CMulTable](#nn.CMulTable) : multiplication of input Tensors;
+    * [CDivTable](#nn.CDivTable) : division of input Tensors;
+  * Table of Criteria :
+    * [CriterionTable](#nn.CriterionTable) : wraps a [Criterion](criterion.md#nn.Criterion) so that it can accept a Table of inputs.
 
 Table-based modules work by supporting forward and backward methods that can accept 
 tables as inputs. It turns out that the usual [Sequential](containers.md#nn.Sequential) module can do this, so all that is needed is other child modules that take advantage of such tables.
