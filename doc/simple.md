@@ -2,6 +2,7 @@
 # Simple layers #
 Simple Modules are used for various tasks like adapting Tensor methods 
 and providing affine transformations :
+
   * Parameterized Modules :
     * [Linear](#nn.Linear) : a linear transformation ;
     * [SparseLinear](#nn.SparseLinear) : a linear transformation with sparse inputs ;

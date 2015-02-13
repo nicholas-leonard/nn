@@ -3,6 +3,7 @@
 
 This set of modules allows the manipulation of tables through the layers of a neural network.
 This allows one to build very rich architectures:
+
   * Table Container Modules encapsulate sub-Modules:
     * [ConcatTable](#nn.ConcatTable) : applies each member module to the same input     [Tensor](https://github.com/torch/torch7/blob/master/doc/tensor.md#tensor) and outputs a table;
     * [ParallelTable](#nn.ParallelTable) : applies the `ith` member module to the `ith` input and outputs a table;

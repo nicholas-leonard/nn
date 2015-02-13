@@ -3,6 +3,7 @@
 # Neural Network Package #
 
 This package provides an easy and modular way to build and train simple or complex neural networks using [Torch](https://github.com/torch/torch7/blob/master/README.md):
+  
   * Modules are the bricks used to build neural networks. Each are themselves neural networks, but can be combined with other networks using containers to create complex neural networks:
     * [Module](module.md#nn.Module) : abstract class inherited by all modules;
     * [Containers](containers.md#nn.Containers) : container classes like [Sequential](containers.md#nn.Sequential), [Parallel](containers.md#nn.Parallel) and [Concat](containers.md#nn.Concat);

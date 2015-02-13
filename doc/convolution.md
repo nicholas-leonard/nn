@@ -2,8 +2,8 @@
 # Convolutional layers #
 
 A convolution is an integral that expresses the amount of overlap of one function `g` as it is shifted over another function `f`. It therefore "blends" one function with another. The neural network package supports convolution, pooling, subsampling and other relevant facilities. These are divided base on the dimensionality of the input and output [Tensors](https://github.com/torch/torch7/blob/master/doc/tensor.md#tensor):
-  * [Temporal Modules](#nn.TemporalModules) apply to sequences with a one-dimensional relationship 
-(e.g. sequences of words, phonemes and letters. Strings of some kind).
+  
+  * [Temporal Modules](#nn.TemporalModules) apply to sequences with a one-dimensional relationship (e.g. sequences of words, phonemes and letters. Strings of some kind).
     * [TemporalConvolution](#nn.TemporalConvolution) : a 1D convolution over an input sequence ;
     * [TemporalSubSampling](#nn.TemporalSubSampling) : a 1D sub-sampling over an input sequence ;
     * [TemporalMaxPooling](#nn.TemporalMaxPooling) : a 1D max-pooling operation over an input sequence ;
@@ -17,8 +17,7 @@ A convolution is an integral that expresses the amount of overlap of one functio
     * [SpatialLPPooling](#nn.SpatialLPPooling) : computes the `p` norm in a convolutional manner on a set of input images ;
     * [SpatialConvolutionMap](#nn.SpatialConvolutionMap) : a 2D convolution that uses a generic connection table ;
     * [SpatialZeroPadding](#nn.SpatialZeroPadding) : padds a feature map with specified number of zeros ;
-    * [SpatialSubtractiveNormalization](#nn.SpatialSubtractiveNormalization) : a spatial subtraction operation on a series of 2D inputs using
-a kernel for computing the weighted average in a neighborhood ;
+    * [SpatialSubtractiveNormalization](#nn.SpatialSubtractiveNormalization) : a spatial subtraction operation on a series of 2D inputs using a kernel for computing the weighted average in a neighborhood ;
   * [Volumetric Modules](#nn.VolumetricModules) apply to inputs with three-dimensional relationships (e.g. videos) :
     * [VolumetricConvolution](#nn.VolumetricConvolution) : a 3D convolution over an input video (a sequence of images) ;
     * [VolumetricMaxPooling](#nn.VolumetricMaxPooling) : a 3D max-pooling operation over an input video.

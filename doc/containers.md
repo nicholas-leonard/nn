@@ -1,6 +1,7 @@
 <a name="nn.Containers"></a>
 # Containers #
 Complex neural networks are easily built using container classes:
+
   * [Container](#nn.Container) : abstract class inherited by containers ;
     * [Sequential](#nn.Sequential) : plugs layers in a feed-forward fully connected manner ;
     * [Parallel](#nn.Parallel) : applies its `ith` child module to the  `ith` slice of the input Tensor ;
