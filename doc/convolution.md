@@ -1,4 +1,4 @@
-<a name="nn.convlayers.dok"/>
+<a name="nn.convlayers.dok"></a>
 # Convolutional layers #
 
 A convolution is an integral that expresses the amount of overlap of one function `g` as it is shifted over another function `f`. It therefore "blends" one function with another. The neural network package supports convolution, pooling, subsampling and other relevant facilities. These are divided base on the dimensionality of the input and output [Tensors](https://github.com/torch/torch7/blob/master/doc/tensor.md#tensor):
@@ -23,7 +23,7 @@ a kernel for computing the weighted average in a neighborhood ;
    * [VolumetricConvolution](#nn.VolumetricConvolution) : a 3D convolution over an input video (a sequence of images) ;
    * [VolumetricMaxPooling](#nn.VolumetricMaxPooling) : a 3D max-pooling operation over an input video.
 
-<a name="nn.TemporalModules"/>
+<a name="nn.TemporalModules"></a>
 ## Temporal Modules ##
 Excluding and optional first batch dimension, temporal layers expect a 2D Tensor as input. The
 first dimension is the number of frames in the sequence (e.g. `nInputFrame`), the last dimenstion
@@ -33,7 +33,7 @@ of dimensions, although the size of each dimension may change. These are commonl
 Note: The [LookupTable](#nn.LookupTable) is special in that while it does output a temporal Tensor of size `nOutputFrame x outputFrameSize`, 
 its input is a 1D Tensor of indices of size `nIndices`. Again, this is excluding the option first batch dimension.
 
-<a name="nn.TemporalConvolution"/>
+<a name="nn.TemporalConvolution"></a>
 ## TemporalConvolution ##
 
 ```lua
@@ -119,7 +119,7 @@ which gives:
 -0.63871422284166
 ```
 
-<a name="nn.TemporalMaxPooling"/>
+<a name="nn.TemporalMaxPooling"></a>
 ## TemporalMaxPooling ##
 
 ```lua
@@ -137,7 +137,7 @@ If the input sequence is a 2D tensor of dimension `nInputFrame x inputFrameSize`
 nOutputFrame = (nInputFrame - kW) / dW + 1
 ```
 
-<a name="nn.TemporalSubSampling"/>
+<a name="nn.TemporalSubSampling"></a>
 ## TemporalSubSampling ##
 
 ```lua
@@ -173,7 +173,7 @@ The output value of the layer can be precisely described as:
 output[i][t] = bias[i] + weight[i] * sum_{k=1}^kW input[i][dW*(t-1)+k)]
 ```
 
-<a name="nn.LookupTable"/>
+<a name="nn.LookupTable"></a>
 ## LookupTable ##
 
 ```lua
@@ -251,13 +251,13 @@ Outputs something like:
 [torch.DoubleTensor of dimension 2x4x3]
 ```
 
-<a name="nn.SpatialModules"/>
+<a name="nn.SpatialModules"></a>
 ## Spatial Modules ##
 Excluding and optional batch dimension, spatial layers expect a 3D Tensor as input. The
 first dimension is the number of features (e.g. `frameSize`), the last two dimenstions
 are spatial (e.g. `height x width`). These are commonly used for processing images.
 
-<a name="nn.SpatialConvolution"/>
+<a name="nn.SpatialConvolution"></a>
 ### SpatialConvolution ###
 
 ```lua
@@ -299,7 +299,7 @@ output[i][j][k] = bias[k]
 ```
 
 
-<a name="nn.SpatialConvolutionMap"/>
+<a name="nn.SpatialConvolutionMap"></a>
 ### SpatialConvolutionMap ###
 
 ```lua
@@ -313,7 +313,7 @@ connection table between input and output features. The
 using a [full connection table](#nn.tables.full). One can specify
 different types of connection tables.
 
-<a name="nn.tables.full"/>
+<a name="nn.tables.full"></a>
 #### Full Connection Table ####
 
 `table = nn.tables.full(nin,nout)`
@@ -321,7 +321,7 @@ different types of connection tables.
 This is a precomputed table that specifies connections between every
 input and output node.
 
-<a name="nn.tables.onetoone"/>
+<a name="nn.tables.onetoone"></a>
 #### One to One Connection Table ####
 
 `table = nn.tables.oneToOne(n)`
@@ -329,7 +329,7 @@ input and output node.
 This is a precomputed table that specifies a single connection to each
 output node from corresponding input node.
 
-<a name="nn.tables.random"/>
+<a name="nn.tables.random"></a>
 #### Random Connection Table ####
 
 `table = nn.tables.random(nin,nout, nto)`
@@ -338,7 +338,7 @@ This table is randomly populated such that each output unit has
 `nto` incoming connections. The algorihtm tries to assign uniform
 number of outgoing connections to each input node if possible.
 
-<a name="nn.SpatialLPPooling"/>
+<a name="nn.SpatialLPPooling"></a>
 ### SpatialLPPooling ###
 
 ```lua
@@ -347,7 +347,7 @@ module = nn.SpatialLPPooling(nInputPlane, pnorm, kW, kH, [dW], [dH])
 
 Computes the `p` norm in a convolutional manner on a set of 2D input planes.
 
-<a name="nn.SpatialMaxPooling"/>
+<a name="nn.SpatialMaxPooling"></a>
 ### SpatialMaxPooling ###
 
 ```lua
@@ -358,7 +358,7 @@ Applies 2D max-pooling operation in `kWxkH` regions by step size
 `dWxdH` steps. The number of output features is equal to the number of
 input planes.
 
-<a name="nn.SpatialAveragePooling"/>
+<a name="nn.SpatialAveragePooling"></a>
 ### SpatialAveragePooling ###
 
 ```lua
@@ -369,7 +369,7 @@ Applies 2D average-pooling operation in `kWxkH` regions by step size
 `dWxdH` steps. The number of output features is equal to the number of
 input planes.
 
-<a name="nn.SpatialAdaptiveMaxPooling"/>
+<a name="nn.SpatialAdaptiveMaxPooling"></a>
 ### SpatialAdaptiveMaxPooling ###
 
 ```lua
@@ -392,7 +392,7 @@ y_i_start = floor((i   /oheight) * iheight)
 y_i_end   = ceil(((i+1)/oheight) * iheight)
 ```
 
-<a name="nn.SpatialSubSampling"/>
+<a name="nn.SpatialSubSampling"></a>
 ### SpatialSubSampling ###
 
 ```lua
@@ -432,7 +432,7 @@ output[i][j][k] = bias[k]
   + weight[k] sum_{s=1}^kW sum_{t=1}^kH input[dW*(i-1)+s)][dH*(j-1)+t][k]
 ```
 
-<a name="nn.SpatialUpSamplingNearest"/>
+<a name="nn.SpatialUpSamplingNearest"></a>
 ### SpatialUpSamplingNearest ###
 
 ```lua
@@ -453,7 +453,7 @@ output(u,v) = input(floor((u-1)/scale)+1, floor((v-1)/scale)+1)
 
 Where `u` and `v` are index from 1 (as per lua convention).  There are no learnable parameters.
 
-<a name="nn.SpatialZeroPadding"/>
+<a name="nn.SpatialZeroPadding"></a>
 ### SpatialZeroPadding ###
 
 ```lua
@@ -463,7 +463,7 @@ module = nn.SpatialZeroPadding(padLeft, padRight, padTop, padBottom)
 Each feature map of a given input is padded with specified number of
 zeros. If padding values are negative, then input is cropped.
 
-<a name="nn.SpatialSubtractiveNormalization"/>
+<a name="nn.SpatialSubtractiveNormalization"></a>
 ### SpatialSubtractiveNormalization ###
 
 ```lua
@@ -500,13 +500,13 @@ w2=image.display(processed)
 ```
 ![](image/lena.jpg)![](image/lenap.jpg)
 
-<a name="nn.VolumetricModules"/>
+<a name="nn.VolumetricModules"></a>
 ## Volumetric Modules ##
 Excluding and optional batch dimension, volumetric layers expect a 4D Tensor as input. The
 first dimension is the number of features (e.g. `frameSize`), the second is sequential (e.g. `time`) and the 
 last two dimenstions are spatial (e.g. `height x width`). These are commonly used for processing videos (sequences of images).
 
-<a name="nn.VolumetricConvolution"/>
+<a name="nn.VolumetricConvolution"></a>
 ### VolumetricConvolution ###
 
 ```lua
@@ -543,7 +543,7 @@ size `nOutputPlane x nInputPlane x kT x kH x kW`) and `self.bias` (Tensor of
 size `nOutputPlane`). The corresponding gradients can be found in
 `self.gradWeight` and `self.gradBias`.
 
-<a name="nn.VolumetricMaxPooling"/>
+<a name="nn.VolumetricMaxPooling"></a>
 ### VolumetricMaxPooling ###
 
 ```lua

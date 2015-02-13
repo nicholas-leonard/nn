@@ -1,4 +1,4 @@
-<a name="nn.Containers"/>
+<a name="nn.Containers"></a>
 # Containers #
 Complex neural networks are easily built using container classes:
  * [Container](#nn.Container) : abstract class inherited by containers ;
@@ -9,7 +9,7 @@ Complex neural networks are easily built using container classes:
  
 See also the [Table Containers](#nn.TableContainers) for manipulating tables of [Tensors](https://github.com/torch/torch7/blob/master/doc/tensor.md).
 
-<a name="nn.Container"/>
+<a name="nn.Container"></a>
 ## Container ##
 
 This is an abstract [Module](module.md#nn.Module) class which declares methods defined in all containers.
@@ -17,19 +17,19 @@ It reimplements many of the Module methods such that calls are propagated to the
 contained modules. For example, a call to [zeroGradParameters](module.md#nn.Module.zeroGradParameters)
 will be propagated to all contained modules.
 
-<a name="nn.Container.add"/>
+<a name="nn.Container.add"></a>
 ### add(module) ###
 Adds the given `module` to the container. The order is important
 
-<a name="nn.Container.get"/>
+<a name="nn.Container.get"></a>
 ### get(index) ###
 Returns the contained modules at index `index`.
 
-<a name="nn.Container.size"/>
+<a name="nn.Container.size"></a>
 ### size() ###
 Returns the number of contained modules.
 
-<a name="nn.Sequential"/>
+<a name="nn.Sequential"></a>
 ## Sequential ##
 
 Sequential provides a means to plug layers together
@@ -51,7 +51,7 @@ which gives the output:
 [torch.Tensor of dimension 1]
 ```
 
-<a name="nn.Parallel"/>
+<a name="nn.Parallel"></a>
 ## Parallel ##
 
 `module` = `Parallel(inputDimension,outputDimension)`
@@ -107,7 +107,7 @@ for i=1,10000 do     -- Train for a few iterations
 end
 ```
 
-<a name="nn.Concat"/>
+<a name="nn.Concat"></a>
 ## Concat ##
 
 ```lua
@@ -137,7 +137,7 @@ which gives the output:
 [torch.Tensor of dimension 10]
 ```
 
-<a name="nn.DepthConcat"/>
+<a name="nn.DepthConcat"></a>
 ## DepthConcat ##
 
 ```lua
@@ -231,7 +231,7 @@ module output tensors non-`dim` sizes aren't all odd or even.
 Such that in order to keep the mappings aligned, one need 
 only ensure that these be all odd (or even).
 
-<a name="nn.TableContainers"/>
+<a name="nn.TableContainers"></a>
 ## Table Containers ##
 While the above containers are used for manipulating input [Tensors](https://github.com/torch/torch7/blob/master/doc/tensor.md), table containers are used for manipulating tables :
  * [ConcatTable](table.md#nn.ConcatTable)

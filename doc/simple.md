@@ -1,4 +1,4 @@
-<a name="nn.simplelayers.dok"/>
+<a name="nn.simplelayers.dok"></a>
 # Simple layers #
 Simple Modules are used for various tasks like adapting Tensor methods 
 and providing affine transformations :
@@ -34,7 +34,7 @@ and providing affine transformations :
    * [Dropout](#nn.Dropout) : masks parts of the `input` using binary samples from a [bernoulli](http://en.wikipedia.org/wiki/Bernoulli_distribution) distribution ;
    
 
-<a name="nn.Linear"/>
+<a name="nn.Linear"></a>
 ## Linear ##
 
 `module` = `Linear(inputDimension,outputDimension)`
@@ -70,7 +70,7 @@ applying the linear transformation is performed with:
  y=module:forward(x)
 ```
 
-<a name="nn.SparseLinear"/>
+<a name="nn.SparseLinear"></a>
 ## SparseLinear ##
 
 `module` = `SparseLinear(inputDimension,outputDimension)`
@@ -113,7 +113,7 @@ indices should not exceed the stated dimensions of the input to the
 layer (10000 in the example).
 
 
-<a name="nn.Dropout"/>
+<a name="nn.Dropout"></a>
 ## Dropout ##
 
 `module` = `nn.Dropout(p)`
@@ -195,7 +195,7 @@ like [ReLU](transfer.md#nn.ReLU). All this depends a great deal on the dataset s
 to the user to try different combinations.
 
 
-<a name="nn.Abs"/>
+<a name="nn.Abs"></a>
 ## Abs ##
 
 `module` = `Abs()`
@@ -214,7 +214,7 @@ gnuplot.grid(true)
 
 ![](image/abs.png)
 
-<a name='nn.Add'/>
+<a name='nn.Add'></a>
 ## Add ##
 
 `module` = `Add(inputDimension,scalar)`
@@ -260,7 +260,7 @@ i.e. the network successfully learns the input _x_ has been shifted
 to produce the output _y_.
 
 
-<a name="nn.Mul"/>
+<a name="nn.Mul"></a>
 ## Mul ##
 
 `module` = `Mul()`
@@ -300,7 +300,7 @@ gives the output:
 i.e. the network successfully learns the input `x` has been scaled by
 pi.
 
-<a name='nn.CMul'/>
+<a name='nn.CMul'></a>
 ## CMul ##
 
 `module` = `CMul(size)`
@@ -348,7 +348,7 @@ i.e. the network successfully learns the input _x_ has been scaled by
 those scaling factors to produce the output _y_.
 
 
-<a name="nn.Max"/>
+<a name="nn.Max"></a>
 ## Max ##
 
 `module` = `Max(dimension)`
@@ -358,7 +358,7 @@ Hence, if an `nxpxq` Tensor was given as input, and `dimension` = `2`
 then an `nxq` matrix would be output.
 
 
-<a name="nn.Min"/>
+<a name="nn.Min"></a>
 ## Min ##
 
 `module` = `Min(dimension)`
@@ -368,7 +368,7 @@ Hence, if an `nxpxq` Tensor was given as input, and `dimension` = `2`
 then an `nxq` matrix would be output.
 
 
-<a name="nn.Mean"/>
+<a name="nn.Mean"></a>
 ## Mean ##
 
 `module` = `Mean(dimension)`
@@ -377,7 +377,7 @@ Applies a mean operation over dimension `dimension`.
 Hence, if an `nxpxq` Tensor was given as input, and `dimension` = `2`
 then an `nxq` matrix would be output.
 
-<a name="nn.Sum"/>
+<a name="nn.Sum"></a>
 ## Sum ##
 
 `module` = `Sum(dimension)`
@@ -387,7 +387,7 @@ Hence, if an `nxpxq` Tensor was given as input, and `dimension` = `2`
 then an `nxq` matrix would be output.
 
 
-<a name="nn.Euclidean"/>
+<a name="nn.Euclidean"></a>
 ## Euclidean ##
 
 `module` = `Euclidean(inputSize,outputSize)`
@@ -399,7 +399,7 @@ i.e. this layer has the weights `w_j`,  for `j` = `1`,..,`outputSize`, where
 The distance `y_j` between center `j` and input `x` is formulated as
 `y_j = || w_j - x ||`.
 
-<a name="nn.WeightedEuclidean"/>
+<a name="nn.WeightedEuclidean"></a>
 ## WeightedEuclidean ##
 
 `module` = `WeightedEuclidean(inputSize,outputSize)`
@@ -415,7 +415,7 @@ where `c_j` are stored as vectors of size `inputSize`.
 The distance `y_j` between center `j` and input `x` is formulated as
 `y_j = || c_j * (w_j - x) ||`.
 
-<a name="nn.Identity"/>
+<a name="nn.Identity"></a>
 ## Identity ##
 
 `module` = `Identity()`
@@ -468,7 +468,7 @@ for i=1,100 do 		 -- Do a few training iterations
 end
 ```
 
-<a name="nn.Copy"/>
+<a name="nn.Copy"></a>
 ## Copy ##
 
 `module` = `Copy(inputType,outputType,[forceCopy,dontCast])`
@@ -481,7 +481,7 @@ When `dontCast` is true, a call to `nn.Copy:type(type)` will not cast
 the module's `output` and `gradInput` Tensors to the new type. The default 
 is false.
 
-<a name="nn.Narrow"/>
+<a name="nn.Narrow"></a>
 ## Narrow ##
 
 `module` = `Narrow(dimension, offset, length)`
@@ -490,7 +490,7 @@ Narrow is application of
 [narrow](https://github.com/torch/torch7/blob/master/doc/tensor.md#tensor-narrowdim-index-size) operation in a
 module.
 
-<a name="nn.Replicate"/>
+<a name="nn.Replicate"></a>
 ## Replicate ##
 
 `module` = `Replicate(nFeature)`
@@ -537,7 +537,7 @@ torch> =o
 ```
 
 
-<a name="nn.Reshape"/>
+<a name="nn.Reshape"></a>
 ## Reshape ##
 
 `module` = `Reshape(dimension1, dimension2, ... [, batchMode])`
@@ -609,7 +609,7 @@ Example:
 [torch.Tensor of dimension 16]
 ```
 
-<a name="nn.View"/>
+<a name="nn.View"></a>
 ## View ##
 
 `module` = `View(sizes)`
@@ -694,7 +694,7 @@ Example 2:
 
 ```
 
-<a name="nn.Select"/>
+<a name="nn.Select"></a>
 ## Select ##
 
 Selects a dimension and index of a  `nxpxqx..`  Tensor.
@@ -765,7 +765,7 @@ for i=1,10000 do     -- Train for a few iterations
 end
 ```
 
-<a name="nn.Exp"/>
+<a name="nn.Exp"></a>
 ## Exp ##
 
 Applies the `exp` function element-wise to the input Tensor,
@@ -782,7 +782,7 @@ gnuplot.grid(true)
 ![](image/exp.png)
 
 
-<a name="nn.Square"/>
+<a name="nn.Square"></a>
 ## Square ##
 
 Takes the square of each element.
@@ -798,7 +798,7 @@ gnuplot.grid(true)
 ```
 ![](image/square.png)
 
-<a name="nn.Sqrt"/>
+<a name="nn.Sqrt"></a>
 ## Sqrt ##
 
 Takes the square root of each element.
@@ -814,7 +814,7 @@ gnuplot.grid(true)
 ```
 ![](image/sqrt.png)
 
-<a name="nn.Power"/>
+<a name="nn.Power"></a>
 ## Power ##
 
 `module` = `Power(p)`
@@ -832,7 +832,7 @@ gnuplot.grid(true)
 ```
 ![](image/power.png)
 
-<a name="nn.MM"/>
+<a name="nn.MM"></a>
 ## MM ##
 
 `module` = `nn.MM(transA, transB)`

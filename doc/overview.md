@@ -1,4 +1,4 @@
-<a name="nn.overview.dok"/>
+<a name="nn.overview.dok"></a>
 # Overview #
 
 Each module of a network is composed of [Modules](module.md#nn.Modules) and there
@@ -23,7 +23,7 @@ easy with a simple for loop to [train a neural network yourself](training.md#nn.
 ## Detailed Overview ##
 This section provides a detailed overview of the neural network package. First the omnipresent [Module](#nn.overview.module) is examined, followed by some examples for [combining modules](#nn.overview.plugandplay) together. The last part explores facilities for [training a neural network](#nn.overview.training).
 
-<a name="nn.overview.module"/>
+<a name="nn.overview.module"></a>
 ### Module ###
 
 A neural network is called a [Module](module.md#nn.Module) (or simply
@@ -47,7 +47,7 @@ Some important remarks:
   * `gradInput` contains only valid values after a [backward(input, gradOutput)](module.md#nn.Module.backward).
   * [backward(input, gradOutput)](module.md#nn.Module.backward) uses certain computations obtained during [forward(input)](module.md#nn.Module.forward). You _must_ call `forward()` before calling a `backward()`, on the _same_ `input`, or your gradients are going to be incorrect!
 
-<a name="nn.overview.plugandplay"/>
+<a name="nn.overview.plugandplay"></a>
 ### Plug and play ###
 
 Building a simple neural network can be achieved by constructing an available layer.
@@ -75,7 +75,7 @@ Of course, `Sequential` and `Concat` can contains other
 networks you ever dreamt of! See the [[#nn.Modules|complete list of
 available modules]].
 
-<a name="nn.overview.training"/>
+<a name="nn.overview.training"></a>
 ### Training a neural network ###
 
 Once you built your neural network, you have to choose a particular
@@ -114,7 +114,7 @@ are implemented.  [See an example](containers.md#nn.DoItStochasticGradient).
 to cut-and-paste it and create a variant to it adapted to your needs
 (if the constraints of `StochasticGradient` do not satisfy you).
 
-<a name="nn.overview.lowlevel"/>
+<a name="nn.overview.lowlevel"></a>
 #### Low Level Training ####
 
 If you want to program the `StochasticGradient` by hand, you

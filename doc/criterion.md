@@ -1,4 +1,4 @@
-<a name="nn.Criterions"/>
+<a name="nn.Criterions"></a>
 # Criterions #
 
 Criterions are helpful to train a neural network. Given an input and a
@@ -10,13 +10,13 @@ dealing with classification.
 
 Criterions are [serializable](https://github.com/torch/torch7/blob/master/doc/file.md#serialization-methods).
 
-<a name="nn.Criterion"/>
+<a name="nn.Criterion"></a>
 ## Criterion ##
 
 This is an abstract class which declares methods defined in all criterions.
 This class is [serializable](https://github.com/torch/torch7/blob/master/doc/file.md#serialization-methods).
 
-<a name="nn.Criterion.forward"/>
+<a name="nn.Criterion.forward"></a>
 ### [output] forward(input, target) ###
 
 Given an `input` and a `target`, compute the loss function associated to the criterion and return the
@@ -27,7 +27,7 @@ The `output` returned should be a scalar in general.
 
 The state variable [self.output](#nn.Criterion.output) should be updated after a call to `forward()`.
 
-<a name="nn.Criterion.backward"/>
+<a name="nn.Criterion.backward"></a>
 ### [gradInput] backward(input, target) ###
 
 Given an `input` and a `target`, compute the gradients of the loss function associated to the criterion and
@@ -36,17 +36,17 @@ might require some other type of object.
 
 The state variable [self.gradInput](#nn.Criterion.gradInput) should be updated after a call to `backward()`.
 
-<a name="nn.Criterion.output"/>
+<a name="nn.Criterion.output"></a>
 ### State variable: output ###
 
 State variable which contains the result of the last [forward(input, target)](#nn.Criterion.forward) call.
 
-<a name="nn.Criterion.gradInput"/>
+<a name="nn.Criterion.gradInput"></a>
 ### State variable: gradInput ###
 
 State variable which contains the result of the last [backward(input, target)](#nn.Criterion.backward) call.
 
-<a name="nn.AbsCriterion"/>
+<a name="nn.AbsCriterion"></a>
 ## AbsCriterion ##
 
 ```lua
@@ -68,7 +68,7 @@ criterion = nn.AbsCriterion()
 criterion.sizeAverage = false
 ```
 
-<a name="nn.ClassNLLCriterion"/>
+<a name="nn.ClassNLLCriterion"></a>
 ## ClassNLLCriterion ##
 
 ```lua
@@ -113,7 +113,7 @@ function gradUpdate(mlp,x,y,learningRate)
 end
 ```
 
-<a name="nn.DistKLDivCriterion"/>
+<a name="nn.DistKLDivCriterion"></a>
 ## DistKLDivCriterion ##
 
 ```lua
@@ -136,7 +136,7 @@ The loss can be described as:
 loss(x, target) = sum_{all i}(target_i * (log(target_i) - x_i))
 ```
 
-<a name="nn.BCECriterion"/>
+<a name="nn.BCECriterion"></a>
 ## BCECriterion ##
 ```lua
 criterion = nn.BCECriterion()
@@ -149,7 +149,7 @@ crossentropy(t,o) = -(t * log(o) + (1 - t) * log(1 - o))
 This is used for measuring the error of a reconstruction in for example an auto-encoder.
 
 
-<a name="nn.MarginCriterion"/>
+<a name="nn.MarginCriterion"></a>
 ## MarginCriterion ##
 
 ```lua
@@ -216,7 +216,7 @@ gives the output:
 ```
 i.e. the mlp successfully separates the two data points such that they both have a margin of 1, and hence a loss of 0.
 
-<a name="nn.MultiMarginCriterion"/>
+<a name="nn.MultiMarginCriterion"></a>
 ## MultiMarginCriterion ##
 
 ```lua
@@ -230,7 +230,7 @@ loss(x,y) = forward(x,y) = sum_i(max(0, 1 - (x[y] - x[i]))^p) / x:size(1)
 ```
 where i = 1 to x:size(1) and i ~= y
 
-<a name="nn.MSECriterion"/>
+<a name="nn.MSECriterion"></a>
 ## MSECriterion ##
 
 ```lua
@@ -254,7 +254,7 @@ criterion = nn.MSECriterion()
 criterion.sizeAverage = false
 ```
 
-<a name="nn.MultiCriterion"/>
+<a name="nn.MultiCriterion"></a>
 ## MultiCriterion ##
 
 ```lua
@@ -269,7 +269,7 @@ Criterions are added using the method:
 where `weight` is a scalar.
 
 
-<a name="nn.HingeEmbeddingCriterion"/>
+<a name="nn.HingeEmbeddingCriterion"></a>
 ## HingeEmbeddingCriterion ##
 
 ```lua
@@ -353,7 +353,7 @@ end
 
 ```
 
-<a name="nn.L1HingeEmbeddingCriterion"/>
+<a name="nn.L1HingeEmbeddingCriterion"></a>
 ## L1HingeEmbeddingCriterion ##
 
 ```lua
@@ -376,7 +376,7 @@ The `margin` has a default value of 1, or can be set in the constructor:
 criterion = L1HingeEmbeddingCriterion(marginValue)
 ```
 
-<a name="nn.CosineEmbeddingCriterion"/>
+<a name="nn.CosineEmbeddingCriterion"></a>
 ## CosineEmbeddingCriterion ##
 
 ```lua
@@ -398,7 +398,7 @@ loss(x,y) = forward(x,y) = 1-cos(x1, x2), if y=1
 = max(0,cos(x1, x2)-margin), if y=-1
 </verbatim>
 
-<a name="nn.MarginRankingCriterion"/>
+<a name="nn.MarginRankingCriterion"></a>
 ## MarginRankingCriterion ##
 
 ```lua
@@ -479,7 +479,7 @@ for i=1,100 do
 end
 ```
 
-<a name="nn.L1Penalty"/>
+<a name="nn.L1Penalty"></a>
 ## L1Penalty ##
 
 ```lua
