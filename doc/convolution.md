@@ -257,7 +257,7 @@ first dimension is the number of features (e.g. `frameSize`), the last two dimen
 are spatial (e.g. `height x width`). These are commonly used for processing images.
 
 <a name="nn.SpatialConvolution"></a>
-### SpatialConvolution ###
+## SpatialConvolution ##
 
 ```lua
 module = nn.SpatialConvolution(nInputPlane, nOutputPlane, kW, kH, [dW], [dH])
@@ -299,7 +299,7 @@ output[i][j][k] = bias[k]
 
 
 <a name="nn.SpatialConvolutionMap"></a>
-### SpatialConvolutionMap ###
+## SpatialConvolutionMap ##
 
 ```lua
 module = nn.SpatialConvolutionMap(connectionMatrix, kW, kH, [dW], [dH])
@@ -313,7 +313,7 @@ using a [full connection table](#nn.tables.full). One can specify
 different types of connection tables.
 
 <a name="nn.tables.full"></a>
-#### Full Connection Table ####
+### Full Connection Table ###
 
 `table = nn.tables.full(nin,nout)`
 
@@ -321,7 +321,7 @@ This is a precomputed table that specifies connections between every
 input and output node.
 
 <a name="nn.tables.onetoone"></a>
-#### One to One Connection Table ####
+### One to One Connection Table ###
 
 `table = nn.tables.oneToOne(n)`
 
@@ -329,7 +329,7 @@ This is a precomputed table that specifies a single connection to each
 output node from corresponding input node.
 
 <a name="nn.tables.random"></a>
-#### Random Connection Table ####
+### Random Connection Table ###
 
 `table = nn.tables.random(nin,nout, nto)`
 
@@ -338,7 +338,7 @@ This table is randomly populated such that each output unit has
 number of outgoing connections to each input node if possible.
 
 <a name="nn.SpatialLPPooling"></a>
-### SpatialLPPooling ###
+## SpatialLPPooling ##
 
 ```lua
 module = nn.SpatialLPPooling(nInputPlane, pnorm, kW, kH, [dW], [dH])
@@ -347,7 +347,7 @@ module = nn.SpatialLPPooling(nInputPlane, pnorm, kW, kH, [dW], [dH])
 Computes the `p` norm in a convolutional manner on a set of 2D input planes.
 
 <a name="nn.SpatialMaxPooling"></a>
-### SpatialMaxPooling ###
+## SpatialMaxPooling ##
 
 ```lua
 module = nn.SpatialMaxPooling(kW, kH [, dW, dH])
@@ -358,7 +358,7 @@ Applies 2D max-pooling operation in `kWxkH` regions by step size
 input planes.
 
 <a name="nn.SpatialAveragePooling"></a>
-### SpatialAveragePooling ###
+## SpatialAveragePooling ##
 
 ```lua
 module = nn.SpatialAveragePooling(kW, kH [, dW, dH])
@@ -369,7 +369,7 @@ Applies 2D average-pooling operation in `kWxkH` regions by step size
 input planes.
 
 <a name="nn.SpatialAdaptiveMaxPooling"></a>
-### SpatialAdaptiveMaxPooling ###
+## SpatialAdaptiveMaxPooling ##
 
 ```lua
 module = nn.SpatialAdaptiveMaxPooling(W, H)
@@ -392,7 +392,7 @@ y_i_end   = ceil(((i+1)/oheight) * iheight)
 ```
 
 <a name="nn.SpatialSubSampling"></a>
-### SpatialSubSampling ###
+## SpatialSubSampling ##
 
 ```lua
 module = nn.SpatialSubSampling(nInputPlane, kW, kH, [dW], [dH])
@@ -432,7 +432,7 @@ output[i][j][k] = bias[k]
 ```
 
 <a name="nn.SpatialUpSamplingNearest"></a>
-### SpatialUpSamplingNearest ###
+## SpatialUpSamplingNearest ##
 
 ```lua
 module = nn.SpatialUpSamplingNearest(scale)
@@ -453,7 +453,7 @@ output(u,v) = input(floor((u-1)/scale)+1, floor((v-1)/scale)+1)
 Where `u` and `v` are index from 1 (as per lua convention).  There are no learnable parameters.
 
 <a name="nn.SpatialZeroPadding"></a>
-### SpatialZeroPadding ###
+## SpatialZeroPadding ##
 
 ```lua
 module = nn.SpatialZeroPadding(padLeft, padRight, padTop, padBottom)
@@ -463,7 +463,7 @@ Each feature map of a given input is padded with specified number of
 zeros. If padding values are negative, then input is cropped.
 
 <a name="nn.SpatialSubtractiveNormalization"></a>
-### SpatialSubtractiveNormalization ###
+## SpatialSubtractiveNormalization ##
 
 ```lua
 module = nn.SpatialSubtractiveNormalization(ninputplane, kernel)
@@ -506,7 +506,7 @@ first dimension is the number of features (e.g. `frameSize`), the second is sequ
 last two dimenstions are spatial (e.g. `height x width`). These are commonly used for processing videos (sequences of images).
 
 <a name="nn.VolumetricConvolution"></a>
-### VolumetricConvolution ###
+## VolumetricConvolution ##
 
 ```lua
 module = nn.VolumetricConvolution(nInputPlane, nOutputPlane, kT, kW, kH [, dT, dW, dH])
@@ -543,7 +543,7 @@ size `nOutputPlane`). The corresponding gradients can be found in
 `self.gradWeight` and `self.gradBias`.
 
 <a name="nn.VolumetricMaxPooling"></a>
-### VolumetricMaxPooling ###
+## VolumetricMaxPooling ##
 
 ```lua
 module = nn.VolumetricMaxPooling(kT, kW, kH [, dT, dW, dH])
